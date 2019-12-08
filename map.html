@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        #map {
+            height: 50%;
+            width: 50%;
+            margin: auto;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="static/img/guide.gif" alt="" class="img-fluid">
+    <img src="static/img/guide_all.gif" alt="" class="img-fluid">
+    <img src="static/img/guide_class.gif" alt="" class="img-fluid">
+    <img src="static/img/guide_keyword.gif" alt="" class="img-fluid">
+    <img src="static/img/guide_btw.gif" alt="" class="img-fluid">
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            // 某點經緯度
+            var orderXY = { lat: 23.219835, lng: 120.328806 };
+            // 
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                zoom: 16, //設定map預設區域大小
+                center: orderXY//初始化中心點
+            });
+            //抓取自定義icon
+            var icon_path = "static/img/";
+            var icons = {
+                tool: {
+                    name: 'tool',
+                    icon: icon_path + "toolicon.png"
+                }
+            };
+            //設定標記
+            var marker = new google.maps.Marker({
+                position: { lat: 23.219835, lng: 120.328806 },//marker的放置位置
+                map: map,//map指的是上面map變數
+                icon: icons.tool.icon,//改變icon
+                title: '小明的位置'//說明文字(選擇性填寫)
+            });
+            var marker = new google.maps.Marker({
+                position: { lat: 23.219737, lng: 120.329557 },//marker的放置位置
+                map: map,//map指的是上面map變數
+                icon: icons.tool.icon,//改變icon
+                title: '小明的位置'//說明文字(選擇性填寫)
+            });
+
+
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTkJ27avk-n-6allfr1gNC3hK_7ZPAL4&callback=initMap"
+        async defer></script>
+</body>
+
+</html>
