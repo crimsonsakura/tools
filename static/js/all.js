@@ -66,8 +66,4 @@ $(document).ready(function() {
     }
     i += 1;
   });
-  $("#A_from").hide();
-  $("#A_btn").click(function(event) {
-    $("#A_from").slideToggle(500);
-  });
 });

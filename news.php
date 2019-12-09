@@ -47,9 +47,9 @@ $result = $linkSQL->query("select * from news");
                                 <div class="card mx-3 mt-1">
                                     <div class="card-header" id="heading<?php echo $rs['news_id'] ?>">
                                         <!-- <h2 class="mb-0"> -->
-                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo $rs['news_id'] ?>" aria-expanded="true" aria-controls="collapse<?php echo $rs['news_id'] ?>">
-                                                <?php echo $rs['news_time']; ?>｜<?php echo mb_substr($rs['news_title'], 0, 13, "utf8") ?>
-                                            </button>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo $rs['news_id'] ?>" aria-expanded="true" aria-controls="collapse<?php echo $rs['news_id'] ?>">
+                                            <?php echo $rs['news_time']; ?>｜<?php echo mb_substr($rs['news_title'], 0, 13, "utf8") ?>
+                                        </button>
                                         <!-- </h2> -->
                                     </div>
 
@@ -98,9 +98,6 @@ $result = $linkSQL->query("select * from news");
     <!-- footer導入 -->
     <?php include("footer.php"); ?>
 </body>
-<script src="static/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
-<script src="static/js/jquery-3.3.1.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/bootstrap-4.2.1/js/bootstrap.min.js"></script>
+<?php include('js_link.php'); ?>
 
 </html>

@@ -155,11 +155,6 @@ setcookie("guide", "visit", time() + 31536000);
     <?php include("footer.php"); ?>
 </body>
 
-<script src="static/fontawesome-free-5.9.0-web/js/all.js"></script>
-<script src="static/fontawesome-free-5.9.0-web/js/v4-shims.min.js"></script>
-<script src="static/js/jquery-3.3.1.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/bootstrap-4.2.1/js/bootstrap.min.js"></script>
-<script src="static/js/all.js"></script>
+<?php include('js_link.php'); ?>
 
 </html>

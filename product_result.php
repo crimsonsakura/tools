@@ -2,9 +2,9 @@
 <?php
 if ((isset($_GET['serch']))) {
     if (($_GET['order_class'] == "order_class")) {
-        $result = $linkSQL->query("SELECT * FROM orderdata WHERE order_title LIKE '%" . $_GET['serch'] . "%'");
+        $result = $linkSQL->query("SELECT * FROM orderdata WHERE order_title LIKE '%" . $_GET['serch'] . "%'&& order_per = '0'");
     } else {
-        $result = $linkSQL->query("select * from orderdata where order_class='" . $_GET['order_class'] . "'and `order_title` LIKE '%" . $_GET['serch'] . "%'");
+        $result = $linkSQL->query("select * from orderdata where order_class='" . $_GET['order_class'] . "'and `order_title` LIKE '%" . $_GET['serch'] . "%'&& order_per = '0'");
     }
 }
 ?>
@@ -77,9 +77,6 @@ if ((isset($_GET['serch']))) {
     <!-- footer導入 -->
     <?php include("footer.php"); ?>
 </body>
-<script src="static/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
-<script src="static/js/jquery-3.3.1.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/bootstrap-4.2.1/js/bootstrap.min.js"></script>
+<?php include('js_link.php'); ?>
 
 </html>

@@ -55,7 +55,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                     <div class="tab-pane fade show active" id="infomation" role="tabpanel" aria-labelledby="infomation-tab">
                         <table class="table">
                             <caption>
-                                <h2><?php echo $rs['order_title'] ?></h2>
+                                <h2>－ <?php echo $rs['order_title'] ?> －</h2>
                             </caption>
                             <tr>
                                 <th>可出借時間上限：</th>
@@ -103,21 +103,29 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                                 <?php } ?>
                                 <!-- 判斷是否為出借者 -->
                                 <?php if ($rs['order_lendid'] == @$_SESSION['userid']) { ?>
-                                    <button id="A_btn" class="btn btn-outline-primary btn-primary drop-shadow mt-2 mb-2">回答</button>
-                                    <form action="product_order_into.php" method="post" id="A_from">
+                                    <button id="A_btn<?php echo $qa['QA_id']; ?>" class="btn btn-outline-primary btn-primary drop-shadow mt-2 mb-2">回答</button>
+                                    <form action="product_orderQA_into.php" method="post" id="A_from<?php echo $qa['QA_id']; ?>">
                                         <input type="hidden" name="QA_id" value="<?php echo $qa['QA_id']; ?>">
                                         <input type="hidden" name="A_time" value="<?php echo date('Y-m-d H:i:s') ?>">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1 mt-2 shadow" rows="2" name="A_content"><?php echo $qa['A_content']; ?></textarea>
+                                        <textarea class="form-control mt-2 shadow" id="exampleFormControlTextarea1" rows="2" name="A_content"><?php echo $qa['A_content']; ?></textarea>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-outline-primary btn-primary drop-shadow mt-2">送出回答</button>
                                         </div>
                                     </form>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $("#A_from<?php echo $qa['QA_id']; ?>").hide();
+                                            $("#A_btn<?php echo $qa['QA_id']; ?>").click(function(event) {
+                                                $("#A_from<?php echo $qa['QA_id']; ?>").slideToggle(500);
+                                            });
+                                        });
+                                    </script>
                                 <?php } ?>
                             <?php } ?>
                             <hr>
                         <?php } ?>
                         <!-- 買方提問區 -->
-                        <form action="product_order_into.php" method="post" class="form-group mt-3 text-center">
+                        <form action="product_orderQA_into.php" method="post" class="form-group mt-3 text-center">
                             <input type="hidden" name="userid" value="<?php echo $_SESSION['userid']; ?>">
                             <input type="hidden" name="order_id" value="<?php echo $_GET['order_id'] ?>">
                             <input type="hidden" name="Q_time" value="<?php echo date('Y-m-d H:i:s') ?>">
@@ -138,52 +146,57 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                     </div>
                     <!-- 頁籤3 內容 -->
                     <div class="tab-pane fade" id="lend" role="tabpanel" aria-labelledby="lend-tab">
-                        <h3>請確認您想借的物品為：</h3>
-                        <table class="table">
-                            <caption>
-                                <h3>木製工具台</h3>
-                            </caption>
-                            <tr>
-                                <th>可出借時間上限：</th>
-                                <td><?php echo $rs['order_lendtime'] ?>天</td>
-                            </tr>
-                            <tr>
-                                <th>想借的時間為：</th>
-                                <td>
-                                    <select class="form-control" name="">
-                                        <?php
-                                        $now = $rs['order_lendtime'];
-                                        $val = range(1, $rs['order_lendtime']);
-                                        foreach ($val as $key => $d) {
-                                            echo '<option value="' . $d;
-                                            if ($d == $now) {
-                                                echo '"selected="' . $now . '">' . $d . '天</option>';
-                                            } else {
-                                                echo '">' . $d . '天</option>';
-                                            }
-                                        };
-                                        ?>
-                                        <option selected>選擇借的時間
-                                        <option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>目前狀態：</th>
-                                <td><?php echo $rs['order_content'] ?></td>
-                            </tr>
-                            <tr>
-                                <th>一天租金：</th>
-                                <td>$<?php echo $rs['order_price'] ?>/一天</td>
-                            </tr>
-                            <tr>
-                                <th>物品所在地：</th>
-                                <td><?php echo $rs['order_address'] ?></td>
-                            </tr>
-                        </table>
-                        <div class="text-center">
-                            <a class="btn btn-outline-primary btn-primary drop-shadow mt-2" href="success.php">確認送出</a>
-                        </div>
+                        <p class="h5" style="color:#333;">請確認您想借的物品為：</p>
+                        <form action="product_order_into.php" method="post">
+                            <table class="table">
+                                <caption>
+                                    <h3>－ <?php echo $rs['order_title'] ?> －</h3>
+                                </caption>
+                                <tr>
+                                    <th>可出借時間上限：</th>
+                                    <td><?php echo $rs['order_lendtime'] ?>天</td>
+                                </tr>
+                                <tr>
+                                    <th>想借的時間為：</th>
+                                    <td>
+                                        <select class="form-control" name="order_borrowtime">
+                                            <?php
+                                            $now = $rs['order_lendtime'];
+                                            $val = range(1, $rs['order_lendtime']);
+                                            foreach ($val as $key => $d) {
+                                                echo '<option value="' . $d;
+                                                if ($d == $now) {
+                                                    echo '"selected="' . $now . '">' . $d . '天</option>';
+                                                } else {
+                                                    echo '">' . $d . '天</option>';
+                                                }
+                                            };
+                                            ?>
+                                            <option selected>選擇借的時間
+                                            <option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>目前狀態：</th>
+                                    <td><?php echo $rs['order_content'] ?></td>
+                                </tr>
+                                <tr>
+                                    <th>一天租金：</th>
+                                    <td>$<?php echo $rs['order_price'] ?>/一天</td>
+                                </tr>
+                                <tr>
+                                    <th>物品所在地：</th>
+                                    <td><?php echo $rs['order_address'] ?></td>
+                                </tr>
+                            </table>
+                            <input type="hidden" name="order_per" value="1">
+                            <input type="hidden" name="order_borrowid" value="<?php echo $_SESSION['userid'] ?>">
+                            <input type="hidden" name="order_id" value="<?php echo $rs['order_id'] ?>">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-primary btn-primary drop-shadow mt-2">確認送出</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

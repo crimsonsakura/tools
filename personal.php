@@ -71,7 +71,7 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
                     <!-- 內容二 -->
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                         <ul class="list-unstyled">
-                            <li><a href="product-add.php" class="btn btn-primary btn-lg btn-block">新增借出</a></li><br>
+                            <li><a href="product_order_add.php" class="btn btn-primary btn-lg btn-block">新增借出</a></li><br>
                             <?php while ($lend = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                                 <a href="product_order.php?order_id=<?php echo $lend['order_id'] ?>">
                                     <li class="media row">
@@ -104,7 +104,7 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
                     <!-- 內容三 -->
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                         <table class="table">
-                            <caption>
+                            <caption class="h1">
                                 <?php echo $user['user_nick'] ?>的個人檔案
                             </caption>
                             <tr>
@@ -136,9 +136,6 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
     <!-- footer導入 -->
     <?php include("footer.php"); ?>
 </body>
-<script src="static/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
-<script src="static/js/jquery-3.3.1.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/bootstrap-4.2.1/js/bootstrap.min.js"></script>
+<?php include('js_link.php'); ?>
 
 </html>

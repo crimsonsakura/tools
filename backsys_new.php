@@ -8,17 +8,17 @@ if (!isset($_SESSION['backsyslogin']) == "1") {
 	$url = "backsys_index.php";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
-	echo "</script>";	
+	echo "</script>";
 }
 ?>
 <?php
-	if ((isset($_GET['news_id']))) {
-		$delnews = $linkSQL->query("delete from news where news_id=" . $_GET['news_id']);
-		if ($delnews) {
-			$deleteGoTo = "backsys_new.php";
-			header(sprintf("Location: %s", $deleteGoTo));
-		}
+if ((isset($_GET['news_id']))) {
+	$delnews = $linkSQL->query("delete from news where news_id=" . $_GET['news_id']);
+	if ($delnews) {
+		$deleteGoTo = "backsys_new.php";
+		header(sprintf("Location: %s", $deleteGoTo));
 	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-hant-TW">
@@ -77,9 +77,6 @@ if (!isset($_SESSION['backsyslogin']) == "1") {
 	<!-- footer導入 -->
 	<?php include('backsys_footer.php'); ?>
 </body>
-<script src="static/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
-<script src="static/js/jquery-3.3.1.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/bootstrap-4.2.1/js/bootstrap.min.js"></script>
+<?php include('js_link.php'); ?>
 
 </html>

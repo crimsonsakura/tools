@@ -8,3 +8,4 @@
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="Shortcut Icon" type="image/x-icon" href="/static/img/toolicon16.png">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+<script src="static/js/jquery-3.3.1.min.js"></script>
