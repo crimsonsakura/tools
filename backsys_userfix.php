@@ -16,7 +16,7 @@ if ((isset($_POST['user_id']))) {
     $updatauser = "update userdata set user_mail=?,user_pass=?,user_nick=?,user_phone=?,user_name=?,user_address=? where user_id=?";
     $stmt = $linkSQL->prepare($updatauser);
     $stmt->bindPARAM(1, $_POST['user_mail'], PDO::PARAM_STR);
-    $stmt->bindPARAM(2, $_POST['user_pass'], PDO::PARAM_STR);
+    $stmt->bindPARAM(2, md5($_POST['user_pass']), PDO::PARAM_STR);
     $stmt->bindPARAM(3, $_POST['user_nick'], PDO::PARAM_STR);
     $stmt->bindPARAM(4, $_POST['user_phone'], PDO::PARAM_STR);
     $stmt->bindPARAM(5, $_POST['user_name'], PDO::PARAM_STR);

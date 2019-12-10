@@ -35,7 +35,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
 
 <body>
     <form action="test2.php" method="post">
-        <input type="text" name="email" id="" value="<?php echo $rs['email']?>">
+        <input type="text" name="email" id="" value="<?php echo $rs['email'] ?>">
         <input type="submit" value="送出">
     </form>
 </body>
@@ -44,17 +44,25 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
 <?php
 $today = '2013-04-19';
 //年
-echo date("Y-m-d", strtotime($today . "+3 year"));
+echo date("Y-m-d", strtotime($today . "+3 year")) . "<br>";
 //月
-echo date("Y-m-d", strtotime($today . "-1 month"));
+echo date("Y-m-d", strtotime($today . "-1 month")) . "<br>";
 //週
-echo date("Y-m-d", strtotime($today . "+10 week"));
+echo date("Y-m-d", strtotime($today . "+10 week")) . "<br>";
 //日
-echo date("Y-m-d", strtotime($today . "+10 day"));
+echo date("Y-m-d", strtotime($today . "+10 day")) . "<br>";
 //時
-echo date("Y-m-d", strtotime($today . "+2 hour"));
+echo date("Y-m-d", strtotime($today . "+2 hour")) . "<br>";
 //分
-echo date("Y-m-d", strtotime($today . "+20 minute"));
+echo date("Y-m-d", strtotime($today . "+20 minute")) . "<br>";
 //秒
-echo date("Y-m-d", strtotime($today . "+5 seconds"));
-?>
+echo date("Y-m-d", strtotime($today . "+5 seconds")) . "<br>";
+$day = 10;
+$now = date("Y-m-d");
+$time = "2019-12-9 13:46:50 +" . $day . "day";
+
+
+$dayline = date("Y-m-d", strtotime($time));
+echo $dayline . "<br>";
+$dayline = (strtotime($dayline) - strtotime($now)) / (60 * 60 * 24);
+echo $abc;

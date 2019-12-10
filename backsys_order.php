@@ -61,7 +61,7 @@ if ((isset($_GET['order_id']))) {
                                 <td data-th="上架者ID："><?php echo $rs['order_lendid']; ?></td>
                                 <td data-th="上架者："><?php echo $rs['user_nick']; ?></td>
                                 <td data-th="" class="text-cnter">
-                                    <a class="btn btn-secondary" href="backsys_orderfix.php?order_id=<?php echo $rs['order_id']; ?>">
+                                    <a class="btn btn-secondary" href="product_order.php?order_id=<?php echo $rs['order_id']; ?>">
                                         修改
                                     </a>
                                 </td>

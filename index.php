@@ -47,7 +47,6 @@ setcookie("guide", "visit", time() + 31536000);
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-
                     </div>
                 <?PHP } ?>
                 <!-- 導入搜尋列 -->
@@ -70,6 +69,7 @@ setcookie("guide", "visit", time() + 31536000);
                     </ul>
                     <div class="box drop-shadow p-3 pb-5 mb-5 tab-content rounded-bottom" id="myTabContent">
                         <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+
                             <form class=" pt-3 pr-3 pl-3" action="login.php" method="post">
                                 <div class="form-group drop-shadow">
                                     <label>帳號/信箱：

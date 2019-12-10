@@ -70,19 +70,19 @@ $result = $linkSQL->query("select * from news");
                                     <img src="static/img/img-4.jpg" class="mr-3 img-fluid" alt="...">
                                 </div>
                                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-                                    <div class="media-body">
-                                        臨時需要特殊工具，卻只會用一次？買的工具放很久沒用只能生灰塵？或許找人借或借別人是一種好選擇，選用特殊工具的新方式，工具借借!
+                                    <div class="media-body h2">
+                                        臨時需要特殊工具，卻只會用一次？<br><br>買的工具放很久沒用只能生灰塵？<br><br>或許找人借或借別人是一種好選擇，選用特殊工具的新方式，工具借借!
                                     </div>
                                 </div>
                             </li>
                             <li class="media row mt-2">
                                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
                                     <div class="media-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nesciunt voluptate dolor illum vitae iusto officiis recusandae totam! Pariatur vitae nobis aspernatur architecto similique amet mollitia distinctio consequuntur fugiat rerum?
+                                        <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nesciunt voluptate dolor illum vitae iusto officiis recusandae totam! Pariatur vitae nobis aspernatur architecto similique amet mollitia distinctio consequuntur fugiat rerum? -->
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                                    <img src="static/img/img-6.jpg" class="mr-3 img-fluid" alt="...">
+                                    <!-- <img src="static/img/img-6.jpg" class="mr-3 img-fluid" alt="..."> -->
                                 </div>
                             </li>
                         </ul>

@@ -16,6 +16,9 @@
                 <li class="nav-item"><a href="news.php" class="dropdown-item">公告&本站介紹</a></li>
                 <?php if (isset($_SESSION['userlogin'])) { ?>
                     <li class="nav-item">
+                        <a class="dropdown-item" href="product_order_add.php">新增借出</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="dropdown-item" href="personal.php">個人檔案</a>
                     </li>
                     <li class="nav-item">
