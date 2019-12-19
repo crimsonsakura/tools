@@ -1,6 +1,6 @@
 <?php include('SQL_link.php'); ?>
 <?php
-$result = $linkSQL->query("select * from news");
+$result = $linkSQL->query("select * from news ORDER BY news_id DESC");
 ?>
 <?php
 if (!isset($_SESSION['backsyslogin']) == "1") {

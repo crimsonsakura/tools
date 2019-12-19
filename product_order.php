@@ -1,7 +1,7 @@
 <?php include('SQL_link.php'); ?>
 <?php
 $result = $linkSQL->query("select * from orderdata where order_id=" . $_GET['order_id']);
-$order_qa = $linkSQL->query("select * from userdata a join order_qa b on a.user_id=b.user_id where order_id=" . $_GET['order_id']);
+$order_qa = $linkSQL->query("select * from userdata a join order_qa b on a.user_id=b.user_id where order_id=" . $_GET['order_id'] . " ORDER BY QA_id DESC");
 $rs = $result->fetch(PDO::FETCH_ASSOC);
 
 ?>
@@ -265,6 +265,11 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                         </div>
                     <?php } ?>
                 </div>
+            </div>
+        </div>
+        <div class="row mt-7">
+            <div class="text-center col-12">
+                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2 text-center" onclick="history.back()">回上一頁</button>
             </div>
         </div>
     </div>

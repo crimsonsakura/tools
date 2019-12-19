@@ -2,9 +2,9 @@
 <?php
 if ((isset($_GET['serch']))) {
     if (($_GET['order_class'] == "order_class")) {
-        $result = $linkSQL->query("SELECT * FROM orderdata WHERE order_title LIKE '%" . $_GET['serch'] . "%'&& order_per = '0'");
+        $result = $linkSQL->query("SELECT * FROM orderdata WHERE order_title LIKE '%" . $_GET['serch'] . "%'&& order_per = '0' ORDER BY order_id DESC");
     } else {
-        $result = $linkSQL->query("select * from orderdata where order_class='" . $_GET['order_class'] . "'and `order_title` LIKE '%" . $_GET['serch'] . "%'&& order_per = '0'");
+        $result = $linkSQL->query("select * from orderdata where order_class='" . $_GET['order_class'] . "'and `order_title` LIKE '%" . $_GET['serch'] . "%'&& order_per = '0' ORDER BY order_id DESC");
     }
 }
 ?>

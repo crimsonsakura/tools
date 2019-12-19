@@ -10,6 +10,6 @@ if ((isset($_POST['order_id']))) {
     $stmt->bindPARAM(5, $_POST['order_id'], PDO::PARAM_STR);
     $updataOrder = $stmt->execute();
     if ($updataOrder) {
-        echo "<script>window.history.back(-1);</script>";
+        echo "<script>window.history.back(-2);</script>";
     }
 }

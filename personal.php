@@ -3,7 +3,7 @@
 <?php include('SQL_link.php'); ?>
 <?php include('loginper.php'); ?>
 <?php
-$result = $linkSQL->query("select * from userdata a join orderdata b on a.user_id=b.order_lendid where user_id=" . $_SESSION['userid']);
+$result = $linkSQL->query("select * from userdata where user_id=" . $_SESSION['userid']);
 $resultlend = $linkSQL->query("select * from userdata a join orderdata b on a.user_id=b.order_lendid where user_id=" . $_SESSION['userid']);
 $resultborrow = $linkSQL->query("select * from userdata a join orderdata b on a.user_id=b.order_borrowid where user_id=" . $_SESSION['userid']);
 $user = $result->fetch(PDO::FETCH_ASSOC);
@@ -140,6 +140,9 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
                                 <td><?php echo $user['user_name'] ?></td>
                             </tr>
                         </table>
+                        <div class="text-center">
+                            <a class="btn btn-outline-primary btn-primary shadow" type="submit" href="userfix.php?user_id=<?php echo $_SESSION['userid'] ?>">修改個人資料</a>
+                        </div>
                     </div>
                 </div>
             </div>

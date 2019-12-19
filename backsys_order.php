@@ -9,7 +9,7 @@ if (!isset($_SESSION['backsyslogin']) == "1") {
 }
 ?>
 <?php
-$result = $linkSQL->query('SELECT * FROM userdata a JOIN orderdata b ON a.user_id=b.order_lendid');
+$result = $linkSQL->query('SELECT * FROM userdata a JOIN orderdata b ON a.user_id=b.order_lendid ORDER BY order_id DESC');
 if ((isset($_GET['order_id']))) {
     $delorder = $linkSQL->query("delete from orderdata where order_id=" . $_GET['order_id']);
     if ($delorder) {

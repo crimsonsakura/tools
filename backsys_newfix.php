@@ -70,7 +70,7 @@ if ((isset($_POST['news_id']))) {
                                     <label>公告內容</label>
                                 </th>
                                 <td>
-                                    <?php echo '<textarea name="news_content" cols="30" rows="10">' . $rs['news_content'] . '</textarea>'; ?>
+                                    <?php echo '<textarea name="news_content" cols="20" rows="10">' . $rs['news_content'] . '</textarea>'; ?>
                                 </td>
                             </tr>
                         </table>

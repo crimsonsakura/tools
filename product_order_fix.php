@@ -26,7 +26,7 @@ if ((($_SESSION['userid']) !== $rs['order_lendid']) && ($_SESSION['backsyslogin'
     <!-- nav導入 -->
     <?php include("nav.php"); ?>
     <!-- 中央區 -->
-    <div class="container warp mt-7 pt-3 pb-11 box drop-shadow" style="height: 700px">
+    <div class="container warp mt-7 mb-7 pt-3 pb-11 box drop-shadow" style="height: 800px">
         <!-- 麵包屑 -->
         <div aria-label="breadcrumb">
             <ol class="breadcrumb drop-shadow">
@@ -115,6 +115,11 @@ if ((($_SESSION['userid']) !== $rs['order_lendid']) && ($_SESSION['backsyslogin'
                 <div class="col-md-2"></div>
             </div>
         </form>
+        <div class="row mt-9">
+            <div class="text-center col-12">
+                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2 text-center" onclick="history.back()">取消修改</button>
+            </div>
+        </div>
     </div>
     <!-- footer導入 -->
     <?php include("footer.php"); ?>

@@ -9,20 +9,24 @@ if (!isset($_SESSION['backsyslogin']) == "1") {
 }
 ?>
 <?php
-$newsadd = "insert into news(news_title,news_content,news_time)values(:title,:content,:time)";
-$stmt = $linkSQL->prepare($newsadd);
-$stmt->bindPARAM(":title", $_POST['news_title'], PDO::PARAM_STR);
-$stmt->bindPARAM(":content", $_POST['news_content'], PDO::PARAM_STR);
-$stmt->bindPARAM(":time", $_POST['news_time'], PDO::PARAM_STR);
-$newsadd = $stmt->execute();
-if ($newsadd) {
-    echo "<script>alert('完成新增')</script>";
-    $url = "backsys_new.php";
-    echo "<script type='text/javascript'>";
-    echo "window.location.href='$url'";
-    echo "</script>";
+if (isset($_POST['news_title'])) {
+    $newsadd = "insert into news(news_title,news_content,news_time)values(:title,:content,:time)";
+    $stmt = $linkSQL->prepare($newsadd);
+    $stmt->bindPARAM(":title", $_POST['news_title'], PDO::PARAM_STR);
+    $stmt->bindPARAM(":content", $_POST['news_content'], PDO::PARAM_STR);
+    $stmt->bindPARAM(":time", $_POST['news_time'], PDO::PARAM_STR);
+    $newsadd = $stmt->execute();
+    if ($newsadd) {
+        echo "<script>alert('完成新增')</script>";
+        $url = "backsys_new.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
+    }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="zh-hant-TW">
 
@@ -61,7 +65,7 @@ if ($newsadd) {
                                     <label>公告內容</label>
                                 </th>
                                 <td>
-                                    <textarea name="news_content" cols="30" rows="10"></textarea>
+                                    <textarea name="news_content" cols="20" rows="10"></textarea>
                                 </td>
                             </tr>
                         </table>

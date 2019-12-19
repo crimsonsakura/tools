@@ -3,15 +3,16 @@
         <img src="static/img/toolicon.png" width="30" height="30" alt="" class="mr-1 ml-1">
         工具借借後台管理系統
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <?php if (isset($_SESSION['backsyslogin']) == 1) { ?>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-        </ul>
-        <?php if (isset($_SESSION['backsyslogin']) == 1) { ?>
+            </ul>
+
             <ul class="form-inline my-2 my-lg-0" style="list-style:none;">
                 <li class="nav-item">
                     <a href="index.php" class="dropdown-item">查看前台</a>
@@ -29,6 +30,6 @@
                     <a class="dropdown-item" href="logout.php">登出</a>
                 </li>
             </ul>
-        <?php } ?>
-    </div>
+
+        </div><?php } ?>
 </nav>
