@@ -5,7 +5,7 @@ if (isset($_POST['submit']) && $_FILES['file1']['name'] != "") {
         echo "上傳檔案失敗";
     }
 } else {
-    copy($_FILES['file1']['tmp_name'], "static/img/" . iconv("utf-8", "big5", $_FILES['file1']['name']));
+    copy($_FILES['file1']['tmp_name'], "static/img/upload/" . iconv("utf-8", "big5", $_FILES['file1']['name']));
     $imgname = $_FILES['file1']['name'];
 }
 $updataorder = "update orderdata set order_img=? where order_id=?";

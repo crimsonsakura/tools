@@ -16,7 +16,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
     <!-- nav導入 -->
     <?php include("nav.php"); ?>
     <!-- 中央區 -->
-    <div class="container warp mt-7 mb-7 pt-3 pb-11 box drop-shadow" style="height: 700px">
+    <div class="container warp mt-7 mb-7 pt-3 pb-11 box drop-shadow">
         <!-- 麵包屑 -->
         <div aria-label="breadcrumb">
             <ol class="breadcrumb drop-shadow">
@@ -24,27 +24,31 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                 <li class=" breadcrumb-item active" aria-current="page">商品頁面</li>
             </ol>
         </div>
+        <div class="row">
+            <div class="text-right col-12">
+                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2" onclick="history.back()">回上一頁</button>
+            </div>
+        </div>
         <form action="product_order_addinto.php" method="post" class="form-group" enctype="multipart/form-data" id="imgInp">
             <div class="row">
                 <!-- 右方圖片 -->
-                <div class="col-md-6 mt-3 drop-shadow" style="height:450px;overflow:auto;">
+                <div class="col-md-6 mt-3 drop-shadow">
                     <input name="file1" type="file" id="inputImg" accept=" image/*">
                     <input type="hidden" name="max_file_size" value="102400000000000000">
                     <img id="previewImg" src="#" class="img-thumbnail d-block">
                 </div>
                 <!-- 左方內容 -->
-                <div class="col-md-6 mt-3 drop-shadow" style="height: 300px;">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <div class="col-md-6 mt-3 drop-shadow">
+                    <ul class="nav nav-tabs">
                         <!-- 頁籤1 -->
                         <li class="nav-item">
-                            <a class="nav-link active" id="infomation-tab" data-toggle="tab" href="#infomation" role="tab" aria-controls="infomation" aria-selected="true">物品資訊
+                            <a class="nav-link active">物品資訊
                             </a>
                         </li>
                     </ul>
-
                     <div class="tab-content mb-7" id="myTabContent">
                         <!-- 頁籤1 內容 -->
-                        <div class="tab-pane fade show active" id="infomation" role="tabpanel" aria-labelledby="infomation-tab">
+                        <div class="tab-pane fade show active">
                             <table class="table">
                                 <caption>
                                     <h2>
@@ -106,11 +110,6 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </form>
-        <div class="row mt-7">
-            <div class="text-center col-12">
-                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2 text-center" onclick="history.back()">取消新增</button>
-            </div>
-        </div>
     </div>
     <!-- footer導入 -->
     <?php include("footer.php"); ?>

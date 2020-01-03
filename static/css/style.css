@@ -3,24 +3,61 @@
   font-size: 16px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
+article {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 9fr 1fr;
+  grid-template-columns: 100%;
+}
+footer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .guide {
   color: #fff;
   text-shadow: snow 0px 0px 4px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  margin: 0;
   background: rgba(0, 0, 0, 0.733);
   position: fixed;
-  z-index: 2;
+  z-index: 1500;
   left: 0;
   bottom: 0;
+  font-size: 2.5rem;
+}
+.guide p,
+.guide i {
+  font-size: 2.5rem;
 }
 .guideimg {
   max-width: 50%;
   height: auto;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .guideimg {
+    max-width: 100%;
+  }
+  .guide p,
+  .guide i {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .guideimg {
+    max-width: 100%;
+  }
+  .guide p,
+  .guide i {
+    font-size: 1.2rem;
+  }
 }
 .guide .guide-off {
   width: 50px;
@@ -38,6 +75,7 @@ html {
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
 }
+
 body {
   font-family:
         /*1*/ "Noto Sans TC", sans-serif, /*2*/-apple-system,
@@ -46,6 +84,7 @@ body {
     /*4*/ "Helvetica Neue", Arial, sans-serif;
   background: url("../img/banner.png") #fff;
   background-size: cover;
+  height: 100%;
 }
 .breadcrumb {
   background-color: #ffe8c2f5;
@@ -82,7 +121,7 @@ a:focus {
 }
 .pb-11,
 .py-11 {
-  padding-bottom: 9rem !important;
+  padding-bottom: 12rem !important;
 }
 .mb-7,
 .my-7 {
@@ -95,6 +134,15 @@ a:focus {
 .mt-9,
 .my-9 {
   margin-top: 7rem !important;
+}
+.mb-9,
+.my-9 {
+  margin-bottom: 7rem !important;
+}
+.alert-danger {
+  color: #fff;
+  background-color: #d12837;
+  border-color: #3f040a;
 }
 .img50X50 {
   width: 50px;

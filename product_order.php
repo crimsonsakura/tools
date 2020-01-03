@@ -19,6 +19,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
     <!-- 中央區 -->
     <div class="container warp mt-7 pt-3 pb-11 box drop-shadow">
         <!-- 麵包屑 -->
+
         <div aria-label="breadcrumb">
             <ol class="breadcrumb drop-shadow">
                 <li class="breadcrumb-item"><a href="index.php"">首頁</a></li>
@@ -26,16 +27,21 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
             </ol>
         </div>
         <div class="row">
+            <div class="text-right col-12">
+                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2" onclick="history.back()">回上一頁</button>
+            </div>
+        </div>
+        <div class="row">
             <!-- 右方圖片 -->
             <div class="col-md-6 mt-3 drop-shadow">
-                <img src="static/img/<?php echo $rs['order_img'] ?>" alt="" class="img-thumbnail d-block">
+                <img src="static/img/upload/<?php echo $rs['order_img'] ?>" alt="" class="img-thumbnail d-block">
                 <?php
                 if ((($rs['order_per'] == 0) && ($rs['order_lendid'] == @$_SESSION['userid'])) or @$_SESSION['backsyslogin'] == "1") { ?>
                     <a class="btn btn-outline-primary btn-primary drop-shadow mt-2" href="product_order_fiximg.php?order_id=<?php echo $_GET['order_id']; ?>">更改圖片</a></h2>
                 <?php } ?>
             </div>
             <!-- 左方內容 -->
-            <div class="col-md-6 mt-3 drop-shadow" style="height: 300px;">
+            <div class="col-md-6 mt-3 drop-shadow" style="height: 500px;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <!-- 頁籤1 -->
                     <li class="nav-item">
@@ -179,17 +185,17 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                                         <td>
                                             <select class="form-control" name="order_borrowtime">
                                                 <?php
-                                                    $now = $rs['order_lendtime'];
-                                                    $val = range(1, $rs['order_lendtime']);
-                                                    foreach ($val as $key => $d) {
-                                                        echo '<option value="' . $d;
-                                                        if ($d == $now) {
-                                                            echo '"selected="' . $now . '">' . $d . '天</option>';
-                                                        } else {
-                                                            echo '">' . $d . '天</option>';
-                                                        }
-                                                    };
-                                                    ?>
+                                                $now = $rs['order_lendtime'];
+                                                $val = range(1, $rs['order_lendtime']);
+                                                foreach ($val as $key => $d) {
+                                                    echo '<option value="' . $d;
+                                                    if ($d == $now) {
+                                                        echo '"selected="' . $now . '">' . $d . '天</option>';
+                                                    } else {
+                                                        echo '">' . $d . '天</option>';
+                                                    }
+                                                };
+                                                ?>
                                                 <option selected>選擇借的時間
                                                 </option>
                                             </select>
@@ -215,7 +221,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
 
                                 <div class="text-center">
                                     <?php if (isset($_SESSION['userlogin'])) {
-                                            if ($_SESSION['userid'] !== $rs['order_lendid']) { ?>
+                                        if ($_SESSION['userid'] !== $rs['order_lendid']) { ?>
                                             <button type="submit" class="btn btn-outline-primary btn-primary drop-shadow mt-2">確認送出</button>
                                         <?php } ?>
                                     <?php } else { ?>
@@ -236,12 +242,12 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                                         <th>目前剩餘天數：</th>
                                         <td>
                                             <?php
-                                                $time = $rs['order_ordertime'] . "+" . $rs['order_borrowtime'] . "day";
-                                                $dayline = date("Y-m-d", strtotime($time));
-                                                $now = date("Y-m-d");
-                                                $daysleft = (strtotime($dayline) - strtotime($now)) / (60 * 60 * 24);
-                                                echo $daysleft . " 天";
-                                                ?>
+                                            $time = $rs['order_ordertime'] . "+" . $rs['order_borrowtime'] . "day";
+                                            $dayline = date("Y-m-d", strtotime($time));
+                                            $now = date("Y-m-d");
+                                            $daysleft = (strtotime($dayline) - strtotime($now)) / (60 * 60 * 24);
+                                            echo $daysleft . " 天";
+                                            ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -267,11 +273,7 @@ $rs = $result->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
-        <div class="row mt-7">
-            <div class="text-center col-12">
-                <button class="btn btn-outline-primary btn-primary drop-shadow mt-2 text-center" onclick="history.back()">回上一頁</button>
-            </div>
-        </div>
+
     </div>
     <!-- footer導入 -->
     <?php include("footer.php"); ?>

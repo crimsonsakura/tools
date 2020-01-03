@@ -54,7 +54,7 @@ if ((isset($_GET['user_id']))) {
                                 <th></th>
                                 <th></th>
                             </tr>
-                        </thead>1
+                        </thead>
                         <?php while ($rs = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                             <tbody>
                                 <tr>

@@ -53,7 +53,7 @@ if ((isset($_GET['serch']))) {
                 <div class="container card-deck mt-5 mx-0 px-0 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 drop-shadow">
                     <div class="card drop-shadow prborder border-info rounded">
                         <a href="product_order.php?order_id=<?php echo $rs['order_id']; ?>">
-                            <img src="static/img/<?php echo $rs['order_img'] ?>" class="card-img-top" alt="...">
+                            <img src="static/img/upload/<?php echo $rs['order_img'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $rs['order_title'] ?></h5>
                                 <table>

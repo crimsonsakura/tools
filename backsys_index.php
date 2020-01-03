@@ -34,10 +34,10 @@
                     <br>
                     <table class="rwd-table table-hover table table-striped table-bordered table-sm text-center">
                         <tr>
-                            <td class="text-center"><a href="backsys_order.php">訂單管理</a></td>
-                            <td class="text-center"><a href="backsys_new.php">最新消息管理</a></td>
-                            <td class="text-center"><a href="backsys_user.php">使用者管理</a></td>
-                            <td class="text-center"><a href="index.php">查看前台</a></td>
+                            <td><a href="backsys_order.php">訂單管理</a></td>
+                            <td><a href="backsys_new.php">最新消息管理</a></td>
+                            <td><a href="backsys_user.php">使用者管理</a></td>
+                            <td><a href="index.php">查看前台</a></td>
                         </tr>
                     </table>
                 <?php } ?>
