@@ -20,9 +20,7 @@ a:hover {
   color: wheat;
   text-decoration: none;
 }
-p > b {
-  color: #fb0000;
-}
+
 .text-center {
   text-align: center;
 }
@@ -35,7 +33,7 @@ p > b {
 
 /* nav */
 nav {
-  width: 20%;
+  width: 10%;
   border: none;
   border-radius: 100% 0 0 100%;
   order: 1;
@@ -48,6 +46,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   box-shadow: -2px 3px 6px #292525;
+  z-index: 999;
 }
 nav ul {
   height: 60%;
@@ -140,6 +139,7 @@ header {
 }
 #about p {
   text-indent: 2em;
+  color: #fff;
 }
 header li {
   color: #000;
@@ -189,30 +189,49 @@ header a:hover {
 }
 main {
   width: 100%;
-  padding-top: 20px;
-  background-color: #fff;
+  padding: 20px 0;
+  background-color: #252525;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-main h1 {
-  margin-top: 2%;
-}
-main hr {
-  width: 50%;
-}
 main > div {
-  width: 50%;
+  width: 60%;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+  margin-top: 40px;
 }
+main h1 {
+  margin-top: 2%;
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+main h1::after {
+  display: block;
+  width: 110%;
+  height: 50%;
+  position: absolute;
+  background: #8a2be282;
+  z-index: -1;
+  content: "";
+  border-radius: 20px;
+  top: 20px;
+}
+main hr {
+  width: 20%;
+}
+
 /* skill */
+.skill {
+  width: 40%;
+}
 .skill hr {
-  width: 100%;
+  width: 80%;
 }
 .skill h2 {
   text-align: center;
@@ -222,30 +241,29 @@ main > div {
   width: 48%;
   margin-top: 1%;
   padding: 2%;
-  background: cadetblue;
+  background: #955fa0;
   border: #fff 2px solid;
   border-radius: 5px;
   box-shadow: #00000073 -14px 15px 3px;
 }
+
+/* time */
 .time {
   padding: 5px;
   width: 50%;
   margin-right: 3%;
   margin-left: 3%;
 }
-.timeShadow {
-  padding: 5%;
-  border: cadetblue 2px dashed;
-  box-shadow: #00000073 -14px 15px 3px;
-  border-radius: 5px;
+.time h2 {
+  font-size: 1.7rem;
+  letter-spacing: 0.3rem;
 }
-
-.mt-- {
-  margin-top: -5%;
-}
-/* time */
-.time p {
-  text-indent: 2em;
+.time h4 {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-style: oblique;
+  color: gray;
+  letter-spacing: 0.3rem;
 }
 .timeline:after {
   content: "";
@@ -255,7 +273,27 @@ main > div {
   left: 50%;
   width: 3px;
   transform: (-50%);
-  background: cadetblue;
+  background: #955fa0;
+}
+.timeShadow {
+  padding: 5%;
+  border: #352c64 13px solid;
+  box-shadow: #00000073 -14px 15px 3px;
+  background: #fff;
+}
+.mt-- {
+  margin-top: -5%;
+}
+
+.time p {
+  text-indent: 2em;
+  color: #444;
+  letter-spacing: 0.2em;
+  line-height: 1.4em;
+}
+.time b {
+  border-radius: 2px;
+  background: linear-gradient(90deg, #fce3ec, #ffe8cc);
 }
 /* portfolio */
 .portfolio {
@@ -263,13 +301,13 @@ main > div {
   flex-direction: row;
   align-items: center;
   margin-top: 2%;
-  border: solid 1px black;
   padding: 1%;
+  color: white;
 }
 .portfolio h2 {
   text-align: center;
-  border-bottom: 1px dashed black;
-  border-top: 1px dashed black;
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
 }
 .portfolio img {
   border: solid 0px wheat;
@@ -284,11 +322,19 @@ main > div {
   transform: translateY(-5px);
   transition: all 0.5s;
   opacity: 1;
-  box-shadow: cadetblue 1px 1px 8px;
+  box-shadow: #955fa0 1px 1px 8px;
 }
 .portfolio img:active,
 .portfolio img:focus {
-  box-shadow: #607d8b 1px 1px 8px 7px;
+  box-shadow: #d001fb 1px 1px 8px 7px;
+}
+.portfolio a {
+  color: white;
+  text-shadow: white 0px 0px 2px;
+}
+.portfolio a:hover {
+  text-shadow: none;
+  transition: all 1s;
 }
 .flex-direction {
   flex-direction: row-reverse;
@@ -366,18 +412,19 @@ main > div {
 footer {
   height: 10vh;
   width: 100%;
-  margin-top: 1%;
-  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(90deg, #23d5ab, #23a6d5, #e73c7e);
+  background-size: 600% 600%;
   position: relative;
+  animation: bg 20s ease-in-out infinite;
 }
 footer ul {
   position: absolute;
   left: 0;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -385,17 +432,18 @@ footer ul {
   flex-wrap: wrap;
 }
 footer li {
-  text-shadow: wheat 0px 0px 2px;
-  color: wheat;
+  text-shadow: black 0px 0px 2px;
+  color: black;
 }
 footer li:hover {
+  color: wheat;
   text-shadow: wheat 0px 0px 0px;
   transition: all 1s;
 }
 footer li a {
-  color: wheat;
-  text-shadow: wheat 0px 0px 2px;
-  border-bottom: #000000db 0px solid;
+  color: black;
+  text-shadow: black 0px 0px 2px;
+  border-bottom: wheat 0px solid;
 }
 footer li a:hover {
   text-shadow: wheat 0px 0px 0px;
