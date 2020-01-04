@@ -18,7 +18,7 @@
                 <li class="list-inline-item col-sm-2"><a href="#" data-toggle="modal" data-target=".bd-example-modal-xl">
                         工具借借專題發表
                     </a></li>
-                <li class="list-inline-item col-sm-2"><a href="turnjs4/samples/magazine/index.html" target="_blank">我的平面作品</a></li>
+                <li class="list-inline-item col-sm-2"><a href="turnjs4/index.html" target="_blank">我的平面作品</a></li>
                 <li class="list-inline-item col-sm-2"><a href="Magazine/index.html" target="_blank">我的平面作品(flash)</a></li>
                 <li class="list-inline-item col-sm-2"><a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                         我的其他版面作品

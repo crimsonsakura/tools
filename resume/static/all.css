@@ -101,7 +101,6 @@ nav li a:hover {
     transition: all 1s;
   }
 }
-
 /* header */
 header {
   display: flex;
@@ -160,12 +159,16 @@ header a {
 header a:hover {
   border-bottom: wheat 1px solid;
 }
+
 /* header-RWD */
 @media (max-width: 1025px) {
   header {
     height: auto;
     padding: 0 10%;
     flex-direction: column;
+  }
+  header hr {
+    width: 45vh;
   }
   .content {
     margin-top: 35%;
@@ -174,6 +177,14 @@ header a:hover {
     width: 100%;
     margin-left: 0;
     margin-top: 5%;
+  }
+}
+@media (max-width: 425px) {
+  header hr {
+    width: 38vh;
+  }
+  .content {
+    margin-top: 50%;
   }
 }
 main {
@@ -270,12 +281,13 @@ main > div {
   opacity: 0.8;
 }
 .portfolio img:hover {
+  transform: translateY(-5px);
   transition: all 0.5s;
   opacity: 1;
   box-shadow: cadetblue 1px 1px 8px;
 }
 .portfolio img:active,
-.portfolio img:active {
+.portfolio img:focus {
   box-shadow: #607d8b 1px 1px 8px 7px;
 }
 .flex-direction {
@@ -330,22 +342,18 @@ main > div {
     padding: 5%;
     margin-top: 5%;
   }
-  .portfolio img {
-    max-width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-  }
+
   .flex-direction img {
     margin-right: 0%;
     margin-left: 0%;
   }
   .portfolio img {
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
     border: solid 0px wheat;
     border-radius: 5px;
     box-shadow: black 1px 1px 8px;
-    margin-left: 6%;
-    margin-right: -6%;
-    max-width: 400px;
     opacity: 1;
   }
   .portfolio img:hover,
